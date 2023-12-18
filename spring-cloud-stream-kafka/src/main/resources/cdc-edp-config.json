@@ -1,0 +1,13 @@
+{
+  "messageHandlerConfig": [
+    {
+      "function": "fizzBuzzProducer",
+      "binder": "kafka",
+      "binding": "fizzBuzzProducer-out-0",
+      "brokers": "localhost:9092",
+      "destination": "numbers",
+      "contentType": "application/json",
+      "group": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    #    stream:
+    function:
+      definition: fizzBuzzProducer;fizzBuzzProcessor;fizzBuzzConsumer
+    stream:
+      bindings:
+        fizzBuzzProducer-out-0:
+          destination: numbers
+#          binder: kafka1
+#        fizzBuzzProcessor-in-0:
+#          destination: numbers
+#          binder: kafka2
+#        fizzBuzzProcessor-out-0:
+#          destination: fizz-buzz
+#        fizzBuzzConsumer-in-0:
+#          destination: fizz-buzz
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+#      binders:
+#        kafka1:
+#          type: kafka
+#          environment:
+#            spring:
+#              kafka:
+#                host: localhost:9092
+#        kafka2:
+#          type: kafka
+#          environment:
+#            spring:
+#              kafka:
+#                host: localhost:9092
+
+
+#  To specify which functional bean to bind to the external destination(s) exposed by the bindings,
+#  you must provide spring.cloud.function.definition property.
